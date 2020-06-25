@@ -33,11 +33,11 @@ $$ D(x;\theta_{d}) $$ : parameter $$ \theta_{d} $$를 가지는 multilater perce
 
 Adversarial nets은 D와 G라는 two-player의 value function $$ V(G, D) $$에 대한 minmax game이라고 표현된다.
 
-$$ \min_{G} \max_{D} V(D,G)=\mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_{z}(z)}[\log (1-D(G(z)))]\qquad(1)$$
+$$ \min_{G} \max_{D} V(D,G)=\mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_{z}(z)}[\log (1-D(G(z)))]\tag{1}$$
 
 G는 V 값을 낮게 하는 방향으로, D는 V 값을 높게 하는 방향으로 parameter들을 학습하겠다는 뜻이다. 
 
-$$ \mathbb{E}$$는 기대 값으로 대충 평균을 생각하면 되고, $$ x \sim p_{data}(x) $$는 data의 확률분포에 대한 $$ x $$ 값들에 대하여 정도로 해석할 수 있겠다. $$ D(x) $$가 확률 값으로 0~1의 값을 가지므로 $$ \log D(x) $$ 는 $$ -\infty \sim 0 $$의 값을 가질 수 있게 된다. 뒤의 항도 비슷한 내용이니 D가 완벽한 분류를 해낸다면 V값은 0이 될 것이고, 분류가 완전 엉망이 된다면 음의 무한대를 향해서 갈 것이다.
+$$ \mathbb{E}$$는 기대 값으로 사건의 값과 확률을 곱해서 다 더한 것이다. $$ x \sim p_{data}(x) $$는 data의 확률분포에 대한 $$ x $$ 값들에 대하여 정도로 해석할 수 있겠다. $$ D(x) $$가 확률 값으로 0~1의 값을 가지므로 $$ \log D(x) $$ 는 $$ -\infty \sim 0 $$의 값을 가질 수 있게 된다. 뒤의 항도 비슷한 내용이니 D가 완벽한 분류를 해낸다면 V값은 0이 될 것이고, 분류가 완전 엉망이 된다면 음의 무한대를 향해서 갈 것이다.
 
 그림을 통해 표현한다면 다음과 같이 된다.
 
@@ -65,8 +65,25 @@ GAN을 수렴시키기 위한 알고리즘은 다음과 같이 제안된다.
 
 **Proposition 1.** For G fixed, the optimal discriminator D is
 
-$$ D^{*}_{G}(x)=\frac{p_{data}(x)}{p_{data}(x)+p_{g}(x)} $$
+$$ D^{*}_{G}(x)=\frac{p_{data}(x)}{p_{data}(x)+p_{g}(x)} \tag{2}$$
 
-*proof.* 
+*proof.* D의 목적은 V를 최대화 하는 것이다. V는
+
+
+$$ 
+\begin{align*} 
+V(G,D) & = \int_{x} p_{data}(x) \log (D(x))dx + \int_{z} p_{z}(z) \log (1-D(g(z)))dz
+\\     & = \int_{x} p_{data}(x) \log (D(x))dx + p_{g}(x) \log (1-D(x))dx \tag{3}
+\end{align*}
+$$
+
+(1)번 식을 좀 더 풀어서 쓴 것이 3번이다. dataset에서 온 $$x$$와 noise $$ z $$ 에서 온 $$ G(z) $$의 기댓값을 더한 것이 value function G이다. 근데 이게 사실 D의 입장에서는 입력이 모두 $$ x $$로 들어오고 분류를 하는건 자신의 몫이니 x가 dataset으로 비롯된다고 판단되면 $$p_{data}(x)$$를 곱하는 것이고, 가짜로 판단된다면 $$p_{g}(x)$$를 곱해서 더하면 된다. 그렇게 하면 위의 기댓값 식과 같은 의미로 식을 쓸 수 있다.
+
+적분 내부 식을 다시 써보자. 양의 실수 $$a$$, $$b$$에 대해서 함수 $$a \log (y) + b \log (1-y)$$로 쓸 수 있다.
+y는 (0,1)에서 값을 가지고, 미분해서 0이되는 지점을 찾으면 $$\frac{a}{a+b}$$ 에서 최댓값을 가진다는 것을 알 수 있다. Descriminator 는 $$Supp(p_{data}) \cup Supp(p_{g})$$ 밖에서 정의 될 필요가 없다고 하는데, Support가
+
+$$supp\ f=cl\{x\ \in X: f(x) \ne 0 \}$$
+
+인 집합이라고 한다. data의 분포, generator의 분포 밖에서 정의 될 필요가 없다고 하는 것은 참으로 맞는 말이다. 여기서 증명을 마친다.
 
 updating...
