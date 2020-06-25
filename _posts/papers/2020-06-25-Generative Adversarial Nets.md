@@ -41,7 +41,7 @@ $$ \mathbb{E}$$는 기대 값으로 대충 평균을 생각하면 되고, $$ x \
 
 그림을 통해 표현한다면 다음과 같이 된다.
 
-![figure1](/assets/Generative Adversarial Nets_figure1.png)
+![figure1](https://github.com/illian01/illian01.github.io/blob/master/assets/Generative%20Adversarial%20Nets_figure1.PNG?raw=true)
 *discriminative distribution(D, blue, dashed line), data distribution(black, dotted line), generative distribution(green, solid line)*
 
 (a) 에서 실 데이터의 분포와 생성 데이터의 분포가 다르게 생겼고, 분류 모델은 어느정도 구별은 하지만 확률값이 출렁대는 것이 보인다.
@@ -59,8 +59,8 @@ $$ \mathbb{E}$$는 기대 값으로 대충 평균을 생각하면 되고, $$ x \
 
 GAN을 수렴시키기 위한 알고리즘은 다음과 같이 제안된다.
 
-![figure1](/assets/Generative Adversarial Nets_figure2.png)
-
+![figure1](https://github.com/illian01/illian01.github.io/blob/master/assets/Generative%20Adversarial%20Nets_figure2.PNG?raw=true)
+ 
 <h4> 4.1 Global Optimality of $ p_{g}=p_{data} $ </h4>
 
 **Proposition 1.** For G fixed, the optimal discriminator D is
