@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Generative Adversarial Nets
-tag: [papers]
+tag: [ComputerVision]
 ---
 
 GAN을 공부하게 되면서 가장 처음 모델을 제안했던 논문으로 돌아가 분석을 해보기로 했다.
