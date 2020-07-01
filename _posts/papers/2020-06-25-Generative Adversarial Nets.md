@@ -13,11 +13,15 @@ GAN을 공부하게 되면서 가장 처음 모델을 제안했던 논문으로 
 
 D와 G의 역할은 간단하다. D는 입력받은 데이터가 dataset(실제 데이터)에서 왔는지 G가 생성해낸 가짜 데이터인지를 구분한다. G는 D가 분류가 실패하도록 가짜 데이터를 찍어내는 역할을 한다. 저자는 이를 경찰과 위조지폐범에 비유했는데, 경찰은 위조지폐를 잡아내기 위해 노력하고, 위조지폐범은 안들키고 쓸 수 있는 지폐를 만들기 위해 개선을 하는 것이다. 
 
-G가 dataset의 distribution을 정확히 잡아내서 D에 넘겨준다면, 즉 G가 실제 데이터와 똑같은 가짜 데이터를 만들어낸다면, D가 데이터 분포 내에서 진짜와 가짜를 분류할 확률은 언제나 50%일 것이다.
+G가 dataset의 distribution을 정확히 잡아내서 D에 넘겨준다면, 즉 G가 실제 데이터와 똑같은 가짜 데이터를 만들어낸다면, 그리고 D가 dataset의 분포를 적절히 학습했을 때, D가 데이터 분포 내에서 진짜와 가짜를 분류할 확률은 언제나 50%일 것이다.
+
+---
 
 <h3>2. Related Work</h3>
 
 여긴 딱히 주의깊게 안읽었다.
+
+---
 
 <h3>3. Adversarial nets</h3>
 
@@ -54,13 +58,14 @@ $$ \mathbb{E}$$는 기대 값으로 사건의 값과 확률을 곱해서 다 더
 
 실제에 적용할 때 equation 1은 초기 학습시에 좋지 않을 때가 있다. G가 아직 제대로 된 값을 못내놓는다면 D가 완벽한 분류를 해내서 $$ \log (1-D(G(z))) $$가 saturate된다. 따라서 $$ \log D(G(z)) $$를 maximize 하도록 학습 시키는 것이 같은 뜻이지만 더 나은 gradient를 줄 수 있다고 한다.
 
+---
 
 <h3>4. Theoretical Results</h3>
 
 GAN을 수렴시키기 위한 알고리즘은 다음과 같이 제안된다.
 
 ![figure1](https://github.com/illian01/illian01.github.io/blob/master/assets/Generative%20Adversarial%20Nets_figure2.PNG?raw=true)
- 
+
 <h4> 4.1 Global Optimality of $ p_{g}=p_{data} $ </h4>
 
 **Proposition 1.** For G fixed, the optimal discriminator D is
@@ -84,6 +89,44 @@ y는 (0,1)에서 값을 가지고, 미분해서 0이되는 지점을 찾으면 $
 
 $$supp\ f=cl\{x\ \in X: f(x) \ne 0 \}$$
 
-인 집합이라고 한다. data의 분포, generator의 분포 밖에서 정의 될 필요가 없다고 하는 것은 참으로 맞는 말이다. 여기서 증명을 마친다.
+인 집합이라고 한다. data의 분포, generator의 분포 밖에서 정의 될 필요가 없다고 하는 것은 참으로 맞는 말이다. 여기서 증명이 마쳐진다.
 
-updating...
+proposition 1에서 $$ D(x) $$가 최적일 때의 식을 구했으니 equation 1을 다시 쓸 수 있다. G의 criterion은 다음과 같다.
+
+$$
+\begin{align*}
+C(G) &= \max_{D} V(G,D)
+\\   &= \mathbb{E}_{x \sim p_{data}} [\log D_{G}^{*}(x)] + \mathbb{E}_{z \sim p_{z}} [\log (1-D_{G}^{*}(G(z)))]
+\\   &= \mathbb{E}_{x \sim p_{data}} [\log D_{G}^{*}(x)] + \mathbb{E}_{x \sim p_{g}} [\log (1-D_{G}^{*}(x))]
+\\   &= \mathbb{E}_{x \sim p_{data}} \left[ \log \frac{p_{data}(x)}{p_{data}(x) + p_{g}(x)} \right] + \mathbb{E}_{x \sim p_{g}} \left[ \log \frac{p_{g}(x)}{p_{data}(x) + p_{g}(x)} \right] \tag{4}
+
+\end{align*}
+$$
+
+**Theorem 1.** virtual training criterion C(G)의 global minimum은 $$ p_{g} = p_{data} $$의 필요충분조건이며, 이때 C(G)의 값은 $$ -\log 4 $$이다.
+
+*proof.* equation 2에 따라서 $$ p_{g}=p_{data} $$일 때 $$D_{g}^{*}=\frac{1}{2}$$이다. 그렇다면 equation 4에 따라서 $$ C(G)=\log \frac{1}{2} + \log \frac{1}{2} = -\log 4$$이다. 
+
+G를 학습시킨 다는 것은 $$p_{g}$$를 $$p_{data}$$에 유사하게 만든다는 것이다. 두 분포의 유사도는 Kullback-Leibler divergence로 구할 수 있는데, 이 점을 criterion에 첨가하면 다음을 얻는다.
+
+$$ C(G) = -\log (4) +KL \left( p_{data} \parallel \frac{p_{data} + p_{g}}{2} \right) + KL \left( p_{g} \parallel \frac{p_{data}+p_{g}}{2} \right) \tag{5}$$
+
+이는 Jensen-Shannon divergence를 의미한다. KL divergence의 대칭적 표현이라는데 이걸 먼저 의식한 것 같다.
+
+$$ C(G) = -\log (4) + 2 JSD (p_{data} \parallel p_{g}) $$
+
+JSD는 두 분포가 같을 때 0을 가지고, 이외에는 양수를 가진다. 따라서 $$C(G)$$의 global optimum은 $$p_{g}=p_{data}$$일 때 $$C^{*}=-\log (4)$$이다.
+
+사실 직관적으로 global optimum은 $$p_{g}=p_{data}$$여야 하겠지? 할 수 있지만 수식적으로 증명한 것이다.
+
+<h4>4.2 Convergence of Algorithm 1</h4>
+
+**Proposition 2.** G와 D가 충분한 capacity를 가지고 있다고 한다. 알고리즘 1에서 각 step에 따라서 discriminator는 주어진 G의 optimum에 수렴하고, G는 criterion을 improve하기 위해 값이 조정된다. 이에 $$p_{g}$$는 $$p_{data}$$에 수렴한다.
+
+*proof.*  updating...
+
+---
+
+<h3>5. Experiments</h3>
+
+\0/
