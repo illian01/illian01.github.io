@@ -14,7 +14,8 @@ Dendrite(가지돌기)에서 신호를 받고, Cell body(세포체)가 하나의
 
 ![figure2](https://github.com/illian01/illian01.github.io/blob/master/assets/Perceptron_figure2.png?raw=true)
 
-$$ out = f \left( \sum_{k=1}^{n} x_{k} \cdot w_{k} \right) $$라고 표현할 수 있다. $$ x_{1} \sim x_{n} $$들이 입력으로 들어오면 각각에 weigh 값이 곱해져서 다 더한다. 여기에 편향값(bias)를 더하고 activation function에 입력으로 주면 output을 얻을 수 있다.
+$$ out = f \left( \sum_{k=1}^{n} x_{k} \cdot w_{k} \right) $$라고 표현할 수 있다. $$ x_{1} \sim x_{n} $$들이 입력으로 들어오면 각각에 weight 값이 곱해져서 다 더한다. 여기에 편향값(bias)를 더하고 activation function에 입력으로 주면 output을 얻을 수 있다. activation function은 여기서 step function이 사용되었는데,
+입력이 어느 이상이면 1, 아니라면 0을 리턴하는 함수다.
 
 이 Perceptron을 이용해서 선형적인 문제를 해결 할 수 있다. AND 와 OR문제를 예시로 생각해보자. 입력은 0과 1의 중의 값으로 2개가 들어온다고 했을 때 가능한 data point를 알 수 있다. 
 
