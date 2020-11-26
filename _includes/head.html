@@ -26,15 +26,7 @@
 
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ '/atom.xml' | absolute_url }}">
 
-  {% if site.google_analytics_id %}
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ41P0KXFD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-BJ41P0KXFD');
-  </script>
+  {% if site.google_analytics and jekyll.environment == 'production' %}
+  {% include analytics.html %}
   {% endif %}
 </head>
