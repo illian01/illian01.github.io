@@ -3,6 +3,8 @@ layout: page
 title: Computer Vision
 ---
 
+내멋대로 하는 비전 논문 공부
+
 <ul class="related-posts">
     {% for post in site.tags.ComputerVision %}
         <h3>
