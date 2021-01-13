@@ -4,13 +4,15 @@ title: Activation function
 tag: [DeepLearning]
 ---
 
+{% assign img_path = site.assets_path | append: page.title | append: "/" | append: page.title%}
+
 딥러닝에서 Activation function(활성함수)의 존재는 매우 중요하다.
 
 이전 층에서 들어온 값을 잘 합쳐서 어떻게 다음층으로 넘겨줄지는 이 함수가 결정한다. Perceptron 에서 사용된 step function을 생각해본다면 어떤 data x가 들어왔을 때, 이 x가 '선 위에있어요' 혹은 '선 아래있어요'를 판단해주는 역할을 하는 것이다.
 
 대부분의 활성함수는 비선형성을 가진다. Identity 라고 이름 붙여진 직선 $$ f(x)=x $$는 대표적인 선형함수다. 간단한 MLP에서 모든 node는 Identity 활성함수를 가진다고 생각해보자.
 
-<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_mlp.png?raw=true" width="60%"></p>
+<p align="center"><img src="{{ img_path }}_mlp.png?raw=true" width="60%"></p>
 
 $$
 \begin{align*}
@@ -49,7 +51,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_step.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}_step.png?raw=true" width="50%"></p>
 
 0과 1만을 반환하는 함수다. 미분이 불가능하다 == backprop이 불가능하다.
 <!---------------------------------------------------------------------------------------->
@@ -70,7 +72,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_sigmoid.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}_sigmoid.png?raw=true" width="50%"></p>
 
 0~1의 값을 반환하는 함수이다. 도함수의 최대값은 0.25로 layer가 깊어지면 backprop때 gradient가 소실된다.
 거기다가 반환 값의 평균이 0.5라 layer가 지날수록 분산이 커져 학습이 제대로 진행되지 않도록 만들 수 있다.
@@ -89,7 +91,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_tanh.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}_tanh.png?raw=true" width="50%"></p>
 
 tanh가 -1~1 값을 반환해서 중심 값이 0이 되어 sigmoid의 문제점 중 하나는 해결된다.
 exp로 인한 깊은 layer에서의 gradient 소실은 여전하다.
@@ -119,7 +121,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_relu.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}_relu.png?raw=true" width="50%"></p>
 
 모르겠으면 일단 ReLU를 쓰면 된다. 연산이 매우 빠르다. input이 양수면 그대로 출력하기 때문에, gradient가 1이 되어서 gradient 소실을 막는다.
 input이 음수면 값을 이후로 전파시키지 않는다.
@@ -173,7 +175,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_prelu.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}_prelu.png?raw=true" width="50%"></p>
 
 Leaky ReLU라고 생각하자. $$ \alpha $$라는 값이 주어진 것 뿐이다.
 <!---------------------------------------------------------------------------------------->
@@ -202,7 +204,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_elu.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}_elu.png?raw=true" width="50%"></p>
 
 평균 출력 이 0에 가까워진다. $$\alpha$$를 일반적으로 1로 설정하는데, 이는 도함수를 연속적으로 만들어주고 gradient descent의 속도를 높여준다.
 <!---------------------------------------------------------------------------------------->
