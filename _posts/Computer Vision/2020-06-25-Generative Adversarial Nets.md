@@ -46,7 +46,7 @@ G는 D를 속이고, D는 G에게 속지 않으려 한다는 소개에서의 컨
 
 그림을 통해 표현한다면 다음과 같이 된다.
 
-![figure1](https://github.com/illian01/illian01.github.io/blob/master/assets/Generative%20Adversarial%20Nets_figure1.png?raw=true)
+<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_figure1.png?raw=true" width="100%"></p>
 *discriminative distribution(D, blue, dashed line), data distribution(black, dotted line), generative distribution(green, solid line)*
 
 (a) 에서 실 데이터의 분포와 생성 데이터의 분포가 다르게 생겼고, 분류 모델은 어느정도 구별은 하지만 확률값이 출렁대는 것이 보인다.
@@ -75,7 +75,7 @@ $$
 GAN을 수렴시키기 위한 알고리즘은 다음과 같이 제안된다. $$ k $$번 D를 학습시킨 다음 G를 학습시킨다. 
 stochastic gradient descent가 사용되며 loss function은 위에 쓰인 것을 사용한다.
 
-![figure1](https://github.com/illian01/illian01.github.io/blob/master/assets/Generative%20Adversarial%20Nets_figure2.png?raw=true)
+<p align="center"><img src="{{ site.assets_path }}{{page.title}}/{{page.title}}_figure2.png?raw=true" width="100%"></p>
 
 <h4> 4.1 Global Optimality of $ p_{g}=p_{data} $ </h4>
 
