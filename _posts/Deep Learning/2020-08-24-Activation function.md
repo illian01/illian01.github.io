@@ -4,7 +4,7 @@ title: Activation function
 tag: [DeepLearning]
 ---
 
-{% assign img_path = site.assets_path | append: page.title | append: "/" | append: page.title%}
+{% assign img_path = site.assets_path | append: site.DeepLearning | append: "/" | append: page.title | append: "/" | append: page.title %}
 
 딥러닝에서 Activation function(활성함수)의 존재는 매우 중요하다.
 

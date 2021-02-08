@@ -4,7 +4,7 @@ title: Backpropagation
 tag: [DeepLearning]
 ---
 
-{% assign img_path = site.assets_path | append: page.title | append: "/" | append: page.title%}
+{% assign img_path = site.assets_path | append: site.DeepLearning | append: "/" | append: page.title | append: "/" | append: page.title %}
 
 Perceptron 이론이 관짝에 들어가고 빙하기가 꽤 지났는데, 이 이론을 다시 관짝에서 끌어낸 것이 Hinton의 Backpropagation(역전파)이다.
 이를 통해서 hidden layer의 weight들을 학습할 수 있다는 것을 알게 되었고, 좀 더 복잡한 문제 역시 해결이 가능함을 보였다.

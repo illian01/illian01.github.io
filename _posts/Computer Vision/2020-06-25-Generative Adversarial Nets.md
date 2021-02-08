@@ -4,7 +4,7 @@ title: Generative Adversarial Nets
 tag: [ComputerVision]
 ---
 
-{% assign img_path = site.assets_path | append: page.title | append: "/" | append: page.title%}
+{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" | append: page.title %}
 
 GAN을 공부하게 되면서 가장 처음 모델을 제안했던 논문으로 돌아가 분석을 해보기로 했다.
 

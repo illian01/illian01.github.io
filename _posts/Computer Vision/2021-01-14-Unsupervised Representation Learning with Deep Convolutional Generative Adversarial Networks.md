@@ -4,7 +4,7 @@ title: Unsupervised Representation Learning with Deep Convolutional Generative A
 tag: [ComputerVision]
 ---
 
-{% assign img_path = site.assets_path | append: site.computer_vision | append: "/" | append: page.title | append: "/" | append: page.title %}
+{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" | append: page.title %}
 
 <h3>1. Introduction</h3>
 

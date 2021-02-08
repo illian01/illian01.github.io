@@ -4,7 +4,7 @@ title: Perceptron
 tag: [DeepLearning]
 ---
 
-{% assign img_path = site.assets_path | append: page.title | append: "/" | append: page.title%}
+{% assign img_path = site.assets_path | append: site.DeepLearning | append: "/" | append: page.title | append: "/" | append: page.title %}
 
 1950년대 후반에 Rosenblatt라는 사람이 Perceptron이라는 것을 제안했다.
 
