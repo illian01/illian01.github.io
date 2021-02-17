@@ -8,7 +8,11 @@ layout: default
   {{ content }}
 </div>
 
+{% if site.comments %} 
 
+<div id="post-disqus" class="container"> {% include disqus.html %} </div> 
+
+{% endif %}
 
 
 <!--
