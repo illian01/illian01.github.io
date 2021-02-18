@@ -141,12 +141,12 @@ $$ V(G,D) = \int_{x} p_{data}(x) \log \left( \frac{p_{data}(x)}{p_{data}(x) + p_
 
 $$
 \begin{align*}
-C(G) &= \int_{x} p_{data}(x) \log \left( \frac{p_{data}(x)}{p_{data}(x) + p_{g}(x)} \right) dx + \int_{x} p_{g}(x) \log \left( \frac{p_{data}(x)}{p_{g}(x) + p_{g}(x)} \right) dx
-\\   &= \int_{x} p_{data}(x) \log \left( \frac{p_{data}(x)}{p_{data}(x) + p_{g}(x)} \right) dx + \int_{x} p_{g}(x) \log \left( \frac{p_{data}(x)}{p_{g}(x) + p_{g}(x)} \right) dx 
+C(G) &= \int_{x} p_{data}(x) \log \left( \frac{p_{data}(x)}{p_{data}(x) + p_{g}(x)} \right) dx + \int_{x} p_{g}(x) \log \left( \frac{p_{g}(x)}{p_{data}(x) + p_{g}(x)} \right) dx
+\\   &= \int_{x} p_{data}(x) \log \left( \frac{p_{data}(x)}{p_{data}(x) + p_{g}(x)} \right) dx + \int_{x} p_{g}(x) \log \left( \frac{p_{g}(x)}{p_{data}(x) + p_{g}(x)} \right) dx 
 \\   &\quad + \int_{x} (\log 2 - \log 2)p_{data}(x) + \int_{x} (\log 2 - \log 2)p_{g}(x)
-\\   &= \int_{x} p_{data}(x) \left( \log 2 + \log \left( \frac{p_{data}(x)}{p_{data}(x) + p_{g}(x)} \right) \right) dx + \int_{x} p_{g}(x) \left( \log 2 + \log \left( \frac{p_{data}(x)}{p_{g}(x) + p_{g}(x)} \right) \right) dx
+\\   &= \int_{x} p_{data}(x) \left( \log 2 + \log \left( \frac{p_{data}(x)}{p_{data}(x) + p_{g}(x)} \right) \right) dx + \int_{x} p_{g}(x) \left( \log 2 + \log \left( \frac{p_{g}(x)}{p_{data}(x) + p_{g}(x)} \right) \right) dx
 \\   &\quad - \log 2 \int_{x} p_{g}(x) + p_{data}(x) dx
-\\   &= -\log 4 + \int_{x} p_{data}(x) \log \left( \frac{p_{data}(x)}{(p_{data}(x) + p_{g}(x)) / 2} \right) dx + \int_{x} p_{g}(x) \log \left( \frac{p_{data}(x)}{(p_{g}(x) + p_{g}(x)) / 2} \right) dx 
+\\   &= -\log 4 + \int_{x} p_{data}(x) \log \left( \frac{p_{data}(x)}{(p_{data}(x) + p_{g}(x)) / 2} \right) dx + \int_{x} p_{g}(x) \log \left( \frac{p_{g}(x)}{(p_{data}(x) + p_{g}(x)) / 2} \right) dx 
 \\   &= -\log (4) +KL \left( p_{data} \parallel \frac{p_{data} + p_{g}}{2} \right) + KL \left( p_{g} \parallel \frac{p_{data}+p_{g}}{2} \right) \tag{5}
 \end{align*}
 $$
