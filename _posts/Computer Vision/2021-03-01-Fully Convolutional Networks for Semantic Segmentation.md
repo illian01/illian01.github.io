@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fully Convolutional Networks for Semantic Segmentation
-tag: [ComputerVision]
+tag: [ComputerVision, Segmentation]
 ---
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" | append: page.title %}
