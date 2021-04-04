@@ -4,7 +4,7 @@ title: Backpropagation
 tag: [DeepLearning]
 ---
 
-{% assign img_path = site.assets_path | append: site.DeepLearning | append: "/" | append: page.title | append: "/" | append: page.title %}
+{% assign img_path = site.assets_path | append: site.DeepLearning | append: "/" | append: page.title | append: "/" %}
 
 Perceptron 이론이 관짝에 들어가고 빙하기가 꽤 지났는데, 이 이론을 다시 관짝에서 끌어낸 것이 Hinton의 Backpropagation(역전파)이다.
 이를 통해서 hidden layer의 weight들을 학습할 수 있다는 것을 알게 되었고, 좀 더 복잡한 문제 역시 해결이 가능함을 보였다.
@@ -21,7 +21,7 @@ $$ x_{i+1} = x_{i} - \gamma \Delta f(x_{i}) $$
 
 $$ \gamma $$는 어느정도의 보폭으로 함수의 낮은 곳을 찾아 갈 것인지 정하는 값이 된다.
 
-<p align="center"><img src="{{ img_path }}_figure1.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure1.png?raw=true" width="50%"></p>
 
 가장 낮은 지점에서의 값을 $$ x_{opt} $$라고 할때, 이보다 큰 값일때의 미분값은 양수, 
 작을 때의 미분 값은 음수가 되어 위 식에 따라 최적값을 찾아간다.
@@ -46,7 +46,7 @@ Backpropagation 알고리즘의 핵심은 이게 전부다. 이후의 자세한 
 
 $$ f(x, y, z) = (x+y)z $$라는 함수가 있고, Computational graph를 그려보자.
 
-<p align="center"><img src="{{ img_path }}_figure2.png?raw=true" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure2.png?raw=true" width="80%"></p>
 
 $$ x = -2, y = 5, z = -4 $$일 때, $$ f(x, y, z) $$ 는 -12의 값을 가진다. 자 여기 예제에서 구하고자 하는 것은 
 $$ \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} $$ 값들이다. 
@@ -57,14 +57,14 @@ $$ \frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \cdot \frac{\pa
 $$ z $$ 값은 정해져 있고, $$ \frac{\partial q}{\partial x} $$는 1이므로 $$ \frac{\partial f}{\partial x} $$는 -4가 된다.
 같은 이유로 $$ \frac{\partial f}{\partial y} $$ 역시 -4이다.
 
-<p align="center"><img src="{{ img_path }}_figure3.png?raw=true" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure3.png?raw=true" width="80%"></p>
 
 이런 식으로 함수들의 연속에서 gradient는 전파 될 수 있다. 
 $$ \frac{\partial f}{\partial x} = \frac{\partial f}{\partial \alpha} \frac{\partial \alpha}{\partial \beta} \cdots 
 \frac{\partial \psi}{\partial \omega} \frac{\partial \omega}{\partial x}$$와 같이 복잡하더라도, 
 각 node에서는 해당 node 출력값에 자기 변수로 미분한 값을 propagation되어 온 값에다 곱하면 출력값에 해당하는 gradient를 얻을 수 있다.
 
-<p align="center"><img src="{{ img_path }}_figure4.png?raw=true" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure4.png?raw=true" width="80%"></p>
 
 Perceptron 에서 소개할 때는 step function을 쓴다고 했는데, 이 함수는 0에서는 미분이 불가능하고, 나머지는 해도 0인 값이라
 Backprop을 적용할 수 없다. 따라서 앞으로는 미분 가능한 함수를 activation function으로 쓴다.

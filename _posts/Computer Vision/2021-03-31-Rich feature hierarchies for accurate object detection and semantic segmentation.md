@@ -4,7 +4,7 @@ title: Rich feature hierarchies for accurate object detection and semantic segme
 tag: [ComputerVision, ObjectDetection]
 ---
 
-{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" | append: page.title %}
+{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
 <h3>1. Introduction</h3>
 
@@ -30,7 +30,7 @@ R-CNN은 3개의 모듈로 나뉜다.
 고정된 입출력을 가지기 때문에 입력을 이에 다 맞춰줘야 하는데, 저자는 전체 픽셀들을 warping해서 227x227로 맞춰서 입력으로 준다.
 $$p$$ 개의 픽셀만큼 bounding box를 확장시킨 후에 이를 warping한다고 한다($$p=16$$). 자세한 내용은 Appendix A에서 설명한다.
 
-<p align="center"><img src="{{ img_path }}_figure1.png?raw=true" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure1.png?raw=true" width="80%"></p>
 
 
 <h4>2.2. Test-time detection</h4>
@@ -61,11 +61,11 @@ Appendix B에서 왜 threshold를 다르게 썻는지, 또 왜 softmax를 사용
 
 <h4>2.4. Results on PASCAL VOC 2010-12</h4>
 
-<p align="center"><img src="{{ img_path }}_figure2.png?raw=true" width="100%"></p>
+<p align="center"><img src="{{ img_path }}figure2.png?raw=true" width="100%"></p>
 
 <h4>2.5. Results on ILSVRC2013 detection</h4>
 
-<p align="center"><img src="{{ img_path }}_figure3.png?raw=true" width="100%"></p>
+<p align="center"><img src="{{ img_path }}figure3.png?raw=true" width="100%"></p>
 
 ---
 
@@ -83,7 +83,7 @@ pass
 
 다른 네트워크를 통한 실험을 보인다. T-Net이 AlexNet, O-Net이 VGGNet이다. VGGNet이 prediction에 7배 많은 시간이 걸렸다고 한다.
 
-<p align="center"><img src="{{ img_path }}_figure4.png?raw=true" width="100%"></p>
+<p align="center"><img src="{{ img_path }}figure4.png?raw=true" width="100%"></p>
 
 <h4>3.4. Detection error analysis</h4>
 
@@ -122,7 +122,7 @@ Object detection 분야에 CNN을 도입하면서 큰 성능 향상을 만들어
 
 <h3>A. Object proposal transformations</h3>
 
-<p align="center"><img src="{{ img_path }}_figure5.png?raw=true" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure5.png?raw=true" width="80%"></p>
 
 (A) 원본
 (B) 주변 context까지 가져와서 box를 채움
