@@ -55,7 +55,8 @@ region proposal 중 정답 데이터와 IoU가 0.5 이상인 경우에 positive(
 lr 0.001 로 SGD를 사용하며, 각 배치는 32개의 positive, 96개의 background로 128개씩 사용한다.
 
 **Object category classifiers.** fine-tune을 했으면 다시 classification layer를 떼어내고 SVM을 학습한다.
-여기서는 데이터가 positive인지 negative인지 결정하는 IoU threshold를 0.3으로 쓴다. 경험적으로 찾은 값으로 보인다.
+여기서 분류기에게 줄 데이터는 fine-tune과는 좀 다르게 준다. 
+물체가 영상에 딱 맞게 들어온 영상은 positive이고, IoU가 0.3 미만인 경우에는 negative로 정한다. IoU가 0.5와 같이 애매한 것은 버린다.
 한번에 모든 값을 메모리에 올려서 학습을 할 수 없어서 standard hard negative mining method 라는 방법을 썻다는데, 모르니까 넘어간다.
 Appendix B에서 왜 threshold를 다르게 썻는지, 또 왜 softmax를 사용한 분류 층을 버리고 SVM을 사용하는지 설명한다.
 
@@ -134,6 +135,16 @@ Object detection 분야에 CNN을 도입하면서 큰 성능 향상을 만들어
 
 <h3>B. Positive vs. negative examples and softmax</h3>
 
+CNN을 fine-tune할 때는 groud-truth와 IoU가 0.5이상인 proposal은 positive로, 나머지는 negative로 학습한다.
+반면에 SVM을 학습할 때에는 ground-truth를 positive로, ground-truth와의 IoU가 0.3 미만인 경우 negative, 나머지는 버린다.
+저자는 미리 학습된 CNN을 통해서 SVM을 학습할 때는 별 문제가 없었는데, 같은 정책으로 fine-tune을 해보고 결과가 나빠지는 걸 알았다고 한다.
+
+저자의 가설로는 fine-tune을 위한 데이터가 부족하다고 하는데, 위에 설명된 fine-tune의 학습데이터 정책은 학습 데이터를 약 30배 늘린다.
+이렇게 많은 데이터여야 전체 네트워크가 과적합되지 않고 fine-tune할 수 있다고 추측한 것이다. 
+하지만 정답 데이터에 노이즈가 섞인 것과 같아서 localization은 정밀하지 않을 수 있게된다.
+
+위와같은 맥락으로 softmax대신에 SVM을 사용한 이유도 설명하자면, CNN을 fine-tune할 때 엄격한 labeling을 하지 않았기 때문에 softmax로는 정확하지 않을 수 있는 것이다.
+저자는 SVM대신 softmax를 사용했을 때 mAP가 크게 떨어졌다고 한다.
 
 
 <h3>C. Bounding-box regression</h3>
