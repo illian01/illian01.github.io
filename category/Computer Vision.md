@@ -26,6 +26,16 @@ title: Computer Vision
     {% endfor %}
 </ul>
 
+<h2>Face Recognition</h2>
+<ul class="related-posts">
+    {% for post in site.tags.FaceRecognition %}
+        <h3>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <small>{{ post.date | date_to_string }}</small>
+        </h3>
+    {% endfor %}
+</ul>
+
 
 <h2>Unclassified</h2>
 <ul class="related-posts">
