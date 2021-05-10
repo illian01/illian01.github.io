@@ -83,11 +83,17 @@ modified softmax나 A-Softmax가 구형을 하는 것은 $$\lVert W \rVert$$를 
 
 <h4>3.4. Properties of A-Softmax loss</h4>
 
-**Property 1.**
+적당한 $$m$$에 대한 수학적 접근이다. 넘어간다.
 
-
+pass
 
 <h4>3.5. Discussion</h4>
+
+**Why angular margin.** softmax는 이미 본질적으로 각도가 포함되어있다. 
+따라서 Euclidean margin을 부여하는 것보다 angular margin을 부여하는 것이 더 자연스럽다.
+
+**Comparison with existing losses.** 기존의 contrastive loss나 triplet loss, center loss처럼 feature 공간에서 바로 거리 계산을 하는 방법이 있으나
+이 것들은 데이터가 늘어갈수록 학습쌍을 만들어주는 것이 어려워지게 된다.
 
 ---
 
@@ -143,7 +149,8 @@ LFW와 YTF에 대해서 정확도를 비교한다.
 
 <p align="center"><img src="{{ img_path }}figure10.png?raw=true" width="50%"></p>
 
-protocol 은 train set 의 크기를 말한다. Ver은 verification TAR(True Accept Rate) for $$10^{6}$$ FAR(False Accept Rate)이라는데 무슨 수치인지 모르겠다.
+protocol 은 train set 의 크기를 말한다. Rank1 Acc.은 Identification task의 Rank1 정확도를 말한다. 
+Ver은 verification task가 TAR(True Accept Rate) for $$10^{-6}$$ FAR(False Accept Rate)일 때 라는데 FAR이 낮을수록 더 엄격한 조건이 된다는 것 말고는 모르겠다.
 
 <p align="center"><img src="{{ img_path }}figure11.png?raw=true" width="100%"></p>
 
