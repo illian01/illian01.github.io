@@ -6,6 +6,10 @@ tag: [ComputerVision, FaceRecognition]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>CVPR, 2017</h3>
+
+---
+
 <h3>1. Introduction</h3>
 
 L-Softmax에서 조금 더 변형한 것을 open-set 데이터에 대해서 적용하고, 왜 open-set에 잘 작동하는지 보인다.

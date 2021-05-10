@@ -6,6 +6,10 @@ tag: [ComputerVision, Segmentation]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>CVPR, 2015</h3>
+
+---
+
 <h3>1. Introduction</h3>
 
 <p align="center"><img src="{{ img_path }}figure1.png?raw=true" width="60%"></p>

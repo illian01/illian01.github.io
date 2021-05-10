@@ -6,6 +6,10 @@ tag: [ComputerVision, Unclassified]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>ICLR, 2015</h3>
+
+---
+
 <h3>1. Introduction</h3>
 
 VGGNet은 ILSVRC에서 1등을 한 적이 있는 모델이다. 

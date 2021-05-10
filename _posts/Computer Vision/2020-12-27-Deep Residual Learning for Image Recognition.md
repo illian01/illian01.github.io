@@ -6,6 +6,10 @@ tag: [ComputerVision, Unclassified]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>CVPR, 2016</h3>
+
+---
+
 <h3>1. Introduction</h3>
 
 2015년도 ILSVRC 1위의 주인공 ResNet 논문이다. 

@@ -6,6 +6,10 @@ tag: [ComputerVision, Unclassified]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>ICLR, 2015</h3>
+
+---
+
 <h3>1. Introduction</h3>
 
 GAN은 학습이 매우 불안정하고, 이해할 수 없는 출력을 자주 낸다.

@@ -6,6 +6,10 @@ tag: [ComputerVision, FaceRecognition]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>ICML, 2016</h3>
+
+---
+
 <h3>1. Introduction</h3>
 
 intra class compactness와 inter class separability를 향상시키기 위해서 softmax를 일반화한 L-Softmax를 제안한다.

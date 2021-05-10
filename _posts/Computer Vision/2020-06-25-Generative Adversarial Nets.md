@@ -6,6 +6,10 @@ tag: [ComputerVision, Unclassified]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>NIPS, pages 2672-2680, 2014</h3>
+
+---
+
 GAN을 공부하게 되면서 가장 처음 모델을 제안했던 논문으로 돌아가 분석을 해보기로 했다.
 
 <h3>1. Introduction</h3>

@@ -6,6 +6,10 @@ tag: [ComputerVision, ObjectDetection]
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
 
+<h3>CVPR, 2014</h3>
+
+---
+
 <h3>1. Introduction</h3>
 
 R-CNN이라는 이름은 Regions with CNN 으로 말그대로 Region proposal과 CNN을 합친 것이다.
