@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Generative Adversarial Nets
-tag: [ComputerVision, Unclassified]
+tag: [ComputerVision, GAN]
 ---
 
 {% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}

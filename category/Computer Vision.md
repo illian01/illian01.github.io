@@ -37,6 +37,17 @@ title: Computer Vision
 </ul>
 
 
+<h2>GAN</h2>
+<ul class="related-posts">
+    {% for post in site.tags.GAN %}
+        <h3>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <small>{{ post.date | date_to_string }}</small>
+        </h3>
+    {% endfor %}
+</ul>
+
+
 <h2>Unclassified</h2>
 <ul class="related-posts">
     {% for post in site.tags.Unclassified %}
