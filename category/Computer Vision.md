@@ -36,6 +36,15 @@ title: Computer Vision
     {% endfor %}
 </ul>
 
+<h2>Face Clustering</h2>
+<ul class="related-posts">
+    {% for post in site.tags.FaceClustering %}
+        <h3>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <small>{{ post.date | date_to_string }}</small>
+        </h3>
+    {% endfor %}
+</ul>
 
 <h2>GAN</h2>
 <ul class="related-posts">
