@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+categories: [level_top]
 ---
 
 <img style="float:left; margin:10px;" src="https://github.com/illian01/illian01.github.io/blob/master/assets/profile.jpg?raw=true" width="25%">

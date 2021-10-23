@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Computer Vision
+categories: [level_top]
 ---
 
 하나씩 정리. 분류는 생각나는대로
