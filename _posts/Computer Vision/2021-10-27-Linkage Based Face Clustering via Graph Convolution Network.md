@@ -12,7 +12,7 @@ tag: [ComputerVision, FaceClustering]
 
 <h3>1. Introduction</h3>
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure1.png" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure1.png?raw=true" width="50%"></p>
 
 ---
 
@@ -32,7 +32,7 @@ $$N$$은 이미지의 수, $$D$$는 특징의 차원이다. 각 얼굴 이미지
 **Motivation.** 데이터셋에서 k-NN을 구하고, 다른 레이블인 데이터끼리의 link를 제거한다.
 이렇게 얻어진 링크들로 클러스터링을 했을 때 얻는 점수가 upper bound라고 한다면, 꽤 합리적인 목표가 된다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure2.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure2.png?raw=true" width="80%"></p>
 
 IJB-B-512 데이터셋에 대해서 k-NN을 적용하고, 다른 레이블끼리의 link들을 제거한 뒤, connected component들을 클러스터 결과로 사용한 결과이다.
 
@@ -42,7 +42,7 @@ IJB-B-512 데이터셋에 대해서 k-NN을 적용하고, 다른 레이블끼리
 - IPS가 입력 데이터로, graph convolution network를 적용한다. 이 네트워크는 pivot과 이웃 사이의 link를 예측한다.
 - 네트워크를 통해 weighted edge들을 얻었으면, 이들을 통합해 클러스터를 구축한다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure4.png" width="100%"></p>
+<p align="center"><img src="{{ img_path }}figure3.png?raw=true" width="100%"></p>
 
 <h4>3.2. Construction of instance pivot subgraph</h4>
 
@@ -57,7 +57,7 @@ $$\mathcal{F}_{p} = \left[ ...,x_{q}-x_{p},...\right]^{T}, \mbox{for all } q\in 
 
 $$\mathcal{F}_{p} \in \mathbb{R} ^{ \mid V_{p} \mid \times D} $$ 이다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure3.png" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure4.png?raw=true" width="50%"></p>
 
 **Step 3: Adding edges among nodes.** node가 구성되었으니 edge를 추가하면 된다.
 각 노드 $$q \in V_{p}$$에 대해서 전체 데이터셋과 비교했을 때, $$u$$개의 최근접 이웃을 구할 수 있다.
@@ -88,7 +88,7 @@ IPS를 구성할 때, pivot으로부터 $$h$$-hop 까지의 node들을 가져와
 실제로 link를 예측하고, loss와 gradient를 계산하는 것은 1-hop인 node에 대해서만 시행한다.
 아래 그림은 GCN을 통과할 때마다 특징 노드들이 비슷한 것끼리 모인다는 것을 표현한 것이다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure5.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure5.png?raw=true" width="60%"></p>
 
 <h4>3.4. Link merging</h4>
 
@@ -114,7 +114,7 @@ $$h=2$$를 사용한다.
 학습에는 $$k_{1}=200$$, $$k_{2}=10$$, $$u=10$$을 사용하고, 테스트에는 $$k_{1}=80$$, $$k_{2}=5$$, $$u=5$$를 사용한다.
 모든 값은 실험적으로 얻어낸 값이다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure6.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure6.png?raw=true" width="80%"></p>
 
 <h4>4.3. Evaluation</h4>
 
@@ -125,13 +125,13 @@ $$h=2$$를 사용한다.
 
 **Comparison with state-of-the-art.** ARO, PAHC, ConPaC, DDC
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure7.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure7.png?raw=true" width="80%"></p>
 
 **Different face representation.** ArcFace 특징이 아닌 다른 얼굴 특징에 대해서도 뛰어난 성능을 내는지 보인다.
 얼굴 특징 추출 모델로 ResNet-50 + Softmax Loss를 MS1M 데이터셋으로 학습시킨다. 
 아래 표는 IJB 데이터셋으로 클러스터링 실험을 했을 때의 결과이며, 여전히 가장 높은 성능을 보이는 것을 알 수 있다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure8.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure8.png?raw=true" width="80%"></p>
 
 **Singleton clusters.**
 Singleton cluster는 node가 1개인 클러스터를 의미한다. 
@@ -140,7 +140,7 @@ Singleton cluster는 node가 1개인 클러스터를 의미한다.
 일반적으로 singleton cluster는 저화질, 어려운 샘플, 잘못된 디텍션된 얼굴 등인 경우가 많은데, 이들에 강건한 알고리즘이라는 것을 보이기 위한 것이다.
 사용한 데이터셋은 IJB-B-512이다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure9.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure9.png?raw=true" width="80%"></p>
 
 **Scalability and efficiency.** 
 
@@ -149,18 +149,18 @@ IPS 구축을 위한 nearest neighbor 검색은 $$O(n \log n)$$ 시간이 걸리
 데이터셋은 IJB-B-1845을 사용하되, Megaface 데이터셋을 distractor로 사용한다.
 성능을 측정할 때는 distractor는 제외하고 측정하게 된다. 장비는 한 개의 Titan Xp GPU를 사용했다고 한다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure10.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure10.png?raw=true" width="80%"></p>
 
 <h4>4.4. Multi-view extension</h4>
 
 이미지와 오디오 특징을 둘 다 사용한다. 각 데이터를 CNN으로 통과해서 얻은 특징을 concat해 사용한다.
 데이터셋은 VoxCeleb2을 사용하며, 2048 명의 인물을 겹치지 않게 추출해서 테스트셋으로 사용한다.
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure11.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure11.png?raw=true" width="80%"></p>
 
 테스트셋의 일부분 512 인물에 대한 결과
 
-<p align="center"><img src="/assets/Computer Vision/Linkage Based Face Clustering via Graph Convolution Network/figure12.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure12.png?raw=true" width="80%"></p>
 
 테스트셋 전체인 2048 인물에 대한 결과
 
