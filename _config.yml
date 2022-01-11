@@ -13,10 +13,6 @@ author:
   url:               https://illian01.github.io/
   email:             wnsgh578@naver.com
 
-# Gems
-plugins:
-  - jekyll-paginate
-
 # Custom vars
 version:             1.1.0
 google_analytics: G-BJ41P0KXFD
