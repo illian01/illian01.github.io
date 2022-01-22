@@ -14,7 +14,7 @@ tag: [ComputerVision, ModelArchitecture]
 
 이전 모델이 너무 무거워서 모바일 단말에서는 사용하지 못하는 문제를 해결하고자 MobileNet을 제안한다.
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure1.png" width="100%"></p>
+<p align="center"><img src="{{ img_path }}figure1.png?raw=true" width="100%"></p>
 
 ---
 
@@ -42,7 +42,7 @@ Depthwise separable convolution은 depthwise convolution과 pointwise convolutio
 Depthwise convolution은 각 convolution 필터가 입력 특징의 각 채널에 적용되어 convolution 연산이 적용되는 방법이다.
 즉, 입력 특징이 $$M$$개의 채널을 가지고 있을 때, 필터의 갯수도 $$M$$개가 되어서 각 채널에 $$D_{K} \times D_{K}$$의 필터가 적용된다.
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure2.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure2.png?raw=true" width="80%"></p>
 
 따라서, depthwise convolution의 파라미터 수는 $$D_{K} \times D_{K} \times M$$이고, computational cost는 다음과 같다.
 
@@ -63,18 +63,18 @@ $$\frac{D_{K} \cdot D_{K} \cdot M \cdot D_{F} \cdot D_{F} + M \cdot N \cdot D_{F
 
 이에 따르면, $$3 \times 3$$커널을 사용했을 때, 8~9배의 연산량 이득을 얻을 수 있다.
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure3.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure3.png?raw=true" width="60%"></p>
 
 <h4>3.2. Network structure and training</h4>
 
 MobileNet 구조는 다음과 같다.
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure4.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure4.png?raw=true" width="60%"></p>
 
 끝단의 FC를 제외한 모든 Conv 층에는 batch normalization과 ReLU가 적용된다.
 성능 비교를 위해 이 모델을 standard convolution으로 구현한 것은 다음과 같이 대응해 치환되는 방식으로 구성된다.
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure5.png" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure5.png?raw=true" width="50%"></p>
 
 <h4>3.3. Width multiplier: Thinner models</h4>
 
@@ -102,30 +102,30 @@ $$D_{K} \cdot D_{K} \cdot \alpha  M \cdot \rho D_{F} \cdot \rho D_{F} + \alpha M
 
 Standard convolution과 depthwise convolution의 차이
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure6.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure6.png?raw=true" width="60%"></p>
 
 Shallow한 버전은 MobileNet에서 입출력 사이즈가 $$14 \times 14 \times 512$$인 층 5개를 날린 것이다.
 층을 아예 날리는 것보다, 전체 층의 채널 수를 줄이는 게 유리하다는 결과이다.
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure7.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure7.png?raw=true" width="60%"></p>
 
 <h4>4.2. Model shrinking hyperparameters</h4>
 
 하이퍼 파라미터 $$\alpha$$에 대한 변화
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure8.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure8.png?raw=true" width="60%"></p>
 
 하이퍼 파리미터 $$\rho$$에 대한 변화
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure9.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure9.png?raw=true" width="60%"></p>
 
 GoogleNet, VGG16과 비교
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure10.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure10.png?raw=true" width="60%"></p>
 
 Squeezenet, AlexNet과 비교
 
-<p align="center"><img src="/assets/Computer Vision/MobileNets; Efficient Convolutional Neural Networks for Mobile Vision Applications/figure11.png" width="60%"></p>
+<p align="center"><img src="{{ img_path }}figure11.png?raw=true" width="60%"></p>
 
 <h4>4.3. Fine grained recognition</h4>
 
