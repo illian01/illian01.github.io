@@ -42,7 +42,7 @@ IJB-B-512 데이터셋에 대해서 k-NN을 적용하고, 다른 레이블끼리
 - IPS가 입력 데이터로, graph convolution network를 적용한다. 이 네트워크는 pivot과 이웃 사이의 link를 예측한다.
 - 네트워크를 통해 weighted edge들을 얻었으면, 이들을 통합해 클러스터를 구축한다.
 
-<p align="center"><img src="{{ img_path }}figure3.png?raw=true" width="100%"></p>
+<p align="center"><img src="{{ img_path }}figure3.png?raw=true" width="60%"></p>
 
 <h4>3.2. Construction of instance pivot subgraph</h4>
 
@@ -57,7 +57,7 @@ $$\mathcal{F}_{p} = \left[ ...,x_{q}-x_{p},...\right]^{T}, \mbox{for all } q\in 
 
 $$\mathcal{F}_{p} \in \mathbb{R} ^{ \mid V_{p} \mid \times D} $$ 이다.
 
-<p align="center"><img src="{{ img_path }}figure4.png?raw=true" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure4.png?raw=true" width="100%"></p>
 
 **Step 3: Adding edges among nodes.** node가 구성되었으니 edge를 추가하면 된다.
 각 노드 $$q \in V_{p}$$에 대해서 전체 데이터셋과 비교했을 때, $$u$$개의 최근접 이웃을 구할 수 있다.

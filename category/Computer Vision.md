@@ -58,9 +58,9 @@ categories: [level_top]
 </ul>
 
 
-<h2>Unclassified</h2>
+<h2>Model Architecture</h2>
 <ul class="related-posts">
-    {% for post in site.tags.Unclassified %}
+    {% for post in site.tags.ModelArchitecture %}
         <h3>
             <a href="{{ post.url }}">{{ post.title }}</a>
             <small>{{ post.date | date_to_string }}</small>
