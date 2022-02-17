@@ -79,7 +79,7 @@ $$[ X \parallel GX ] \in \mathbb{R}^{N \times d_{2in}}$$가 된다.
 $$W$$는 학습하는 weight로, $$2d_{in} \times d_{out}$$을 크기를 가지고, $$\sigma$$는 ReLU이다.
 
 Aggregation matrix를 만드는 $$g( \cdot )$$함수를 Mean aggregation, Weighted aggregation, Attention aggregation 세 가지로 실험해 봤는데,
-Mean aggregation 방식이 성능이 가장 좋았다고 한다.
+Attention이 성능은 좀 더 좋았어도 연산량 차이가 커서 이후에 따로 표기를 하지 않았다면 Mean aggregation 방식을 사용한 것으로 보면 된다.
 
 $$G = \Lambda^{-\frac{1}{2}} A \Lambda^{-\frac{1}{2}}, \Lambda_{ii} = \Sigma_{j} A_{ij} $$
 
