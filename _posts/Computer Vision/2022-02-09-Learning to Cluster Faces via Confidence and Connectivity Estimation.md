@@ -15,7 +15,7 @@ tag: [ComputerVision, FaceClustering]
 클러스터링 과정을 GCN-V와 GCN-E라는 두 네트워크로 분리한다.
 GCN-V는 vertex의 confidence를 예측하고, GCN-E는 edge를 예측한다.
 
-<p align="center"><img src="/assets/Computer Vision/Learning to Cluster Faces via Confidence and Connectivity Estimation/figure1.png" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure1.png?raw=true" width="50%"></p>
 
 ---
 
@@ -42,7 +42,7 @@ $$\mathrm{f}_{i} \in \mathbb{R}^{D}$$이며, $$N$$은 데이터의 수, $$D$$는
 confidence는 이웃 vertex들이 얼마나 같은 클래스들로 밀집되어 있는지를 나타낸다.
 두 번째는 GCN-E로, vertex 사이의 edge를 예측한다. 같은 클래스라면 edge를 형성하고, 다른 클래스라면 형성하지 않는다.
 
-<p align="center"><img src="/assets/Computer Vision/Learning to Cluster Faces via Confidence and Connectivity Estimation/figure2.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure2.png?raw=true" width="80%"></p>
 
 <h4>3.2. Confidence estimator</h4>
 GCN-V는 각 vertex마다 confidence를 예측한다. confidence $$c_{i}$$는 다음과 같이 정의된다.
@@ -158,11 +158,11 @@ K-means, HAC, DBSCAN, MeanShift, Spectral, ARO, CDP, L-GCN, LTC, GCN-V, GCN-VE
 
 **Results.** MS1MV2 labeled에 학습, unlabeled에 성능 측정
 
-<p align="center"><img src="/assets/Computer Vision/Learning to Cluster Faces via Confidence and Connectivity Estimation/figure3.png" width="80%"></p>
+<p align="center"><img src="{{ img_path }}figure3.png?raw=true" width="80%"></p>
 
 Deep-Fashion에 대한 결과
 
-<p align="center"><img src="/assets/Computer Vision/Learning to Cluster Faces via Confidence and Connectivity Estimation/figure4.png" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure4.png?raw=true" width="50%"></p>
 
 **Runtime analysis.**
 pass
@@ -179,7 +179,7 @@ MS1MV2를 사용해서 다음과 같이 face recognition model을 만든다.
 이전 work에서는 pseudo label을 부여할 때, unlabeled 비율에 따라 클러스터링을 여러번 진행했으나,
 이 논문에서는 unlabeled 전체를 한번에 클러스터링 한 후, 여러 비율에 맞게 split해서 사용했다고 한다.
 
-<p align="center"><img src="/assets/Computer Vision/Learning to Cluster Faces via Confidence and Connectivity Estimation/figure5.png" width="50%"></p>
+<p align="center"><img src="{{ img_path }}figure5.png?raw=true" width="50%"></p>
 
 <h4>4.3. Ablation study</h4>
 
