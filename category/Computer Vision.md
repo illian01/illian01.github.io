@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Computer Vision
+title: Papers
 categories: [level_top]
 ---
 
-하나씩 정리. 분류는 생각나는대로
+연도 순서대로 정리되어있지 않음. 
 
 <h2>Object Detection</h2>
 <ul class="related-posts">
@@ -37,15 +37,16 @@ categories: [level_top]
     {% endfor %}
 </ul>
 
-<h2>Face Clustering</h2>
+<h2>Clustering</h2>
 <ul class="related-posts">
-    {% for post in site.tags.FaceClustering %}
+    {% for post in site.tags.Clustering %}
         <h3>
             <a href="{{ post.url }}">{{ post.title }}</a>
             <small>{{ post.date | date_to_string }}</small>
         </h3>
     {% endfor %}
 </ul>
+
 
 <h2>GAN</h2>
 <ul class="related-posts">

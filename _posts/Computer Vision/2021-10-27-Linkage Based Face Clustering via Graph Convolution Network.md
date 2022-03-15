@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Linkage Based Face Clustering via Graph Convolution Network
-tag: [ComputerVision, FaceClustering]
+tag: [ComputerVision, Clustering]
 ---
 
-{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
+{% assign img_path = site.assets_path | append: site.Papers | append: "/" | append: page.title | append: "/" %}
 
 <h3>CVPR, 2019</h3>
 

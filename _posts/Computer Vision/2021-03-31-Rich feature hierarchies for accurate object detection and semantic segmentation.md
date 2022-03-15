@@ -4,7 +4,7 @@ title: Rich feature hierarchies for accurate object detection and semantic segme
 tag: [ComputerVision, ObjectDetection]
 ---
 
-{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
+{% assign img_path = site.assets_path | append: site.Papers | append: "/" | append: page.title | append: "/" %}
 
 <h3>CVPR, 2014</h3>
 

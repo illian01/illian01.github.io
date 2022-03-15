@@ -4,7 +4,7 @@ title: Fully Convolutional Networks for Semantic Segmentation
 tag: [ComputerVision, Segmentation]
 ---
 
-{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
+{% assign img_path = site.assets_path | append: site.Papers | append: "/" | append: page.title | append: "/" %}
 
 <h3>CVPR, 2015</h3>
 

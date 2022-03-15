@@ -4,7 +4,7 @@ title: MobileNets; Efficient Convolutional Neural Networks for Mobile Vision App
 tag: [ComputerVision, ModelArchitecture]
 ---
 
-{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
+{% assign img_path = site.assets_path | append: site.Papers | append: "/" | append: page.title | append: "/" %}
 
 <h3>arXiv, 2017</h3>
 

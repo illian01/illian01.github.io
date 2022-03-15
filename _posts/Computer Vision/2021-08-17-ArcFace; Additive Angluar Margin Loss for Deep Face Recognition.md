@@ -4,7 +4,7 @@ title: ArcFace; Additive Angluar Margin Loss for Deep Face Recognition
 tag: [ComputerVision, FaceRecognition]
 ---
 
-{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
+{% assign img_path = site.assets_path | append: site.Papers | append: "/" | append: page.title | append: "/" %}
 
 <h3>CVPR, 2018</h3>
 

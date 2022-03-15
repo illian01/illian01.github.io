@@ -4,7 +4,7 @@ title: Large-Margin Softmax Loss for Convolutional Neural Networks
 tag: [ComputerVision, FaceRecognition]
 ---
 
-{% assign img_path = site.assets_path | append: site.ComputerVision | append: "/" | append: page.title | append: "/" %}
+{% assign img_path = site.assets_path | append: site.Papers | append: "/" | append: page.title | append: "/" %}
 
 <h3>ICML, 2016</h3>
 
