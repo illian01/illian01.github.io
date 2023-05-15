@@ -1,22 +1,11 @@
 # Setup
-title:               illian01
-tagline:             'Vision'
-description:         '시간날 때 공부한 것 정리하는 블로그'
+title:               Junho Shin
+tagline:             'Computer Vision'
 url:                 https://illian01.github.io/
 baseurl:             ''
-paginate:            5
 permalink:           pretty
 
-# About/contact
-author:
-  name:              illian01
-  url:               https://illian01.github.io/
-  email:             wnsgh578@naver.com
 
 # Custom vars
 version:             1.1.0
 google_analytics: G-BJ41P0KXFD
-assets_path: https://github.com/illian01/illian01.github.io/blob/master/assets/
-Papers: Papers
-DeepLearning: Deep Learning
-comments: true
